@@ -1,19 +1,27 @@
-let flipBtn = document.querySelector("button");
-let coin = document.querySelector("img");
-let result = document.querySelector(".resultP");
+const button = document.querySelector("button")
+const img = document.querySelector("img")
+const result = document.querySelector(".resultP");
 
-// make random number of fliping coin (if number even => head , odd=> tail)
-flipBtn.addEventListener("click" , ()=> {
+function flipCoin() {
+  // Add animation class
+ img.classList.add("flip");
 
-    let theRandomNum = Math.trunc(Math.random()*20);
-    coin.style.transform = `rotateY(${-180*theRandomNum}deg)`;
-    setTimeout(() => {
-        if(theRandomNum%2 == 0) {
-            result.textContent = "Heads"
-        } else {
-            result.textContent = "Tails";
+  // Random number (even = heads, odd = tails)
+  const randomNum = Math.floor(Math.random() * 10);
+
+  // Wait for animation to complete (1s)
+  setTimeout(() => {
+    if (randomNum % 2 === 0) {
+     img.src = "resources/heads.svg";
+      result.textContent = "Heads";
+    } else {
+     img.src = "resources/tails.svg";
+      result.textContent = "Tails";
     }
-    }, 1000);
-    
 
-});
+    // Remove class so next click can re-trigger animation
+   img.classList.remove("flip");
+  }, 1000);
+}
+button.addEventListener('click',flipCoin)
+img.addEventListener('click',flipCoin)

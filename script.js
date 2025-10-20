@@ -3,11 +3,11 @@ const img = document.querySelector("img")
 const result = document.querySelector(".resultP");
 
 function flipCoin() {
+   // Random number (even = heads, odd = tails)
+  const randomNum = Math.floor(Math.random() * 10);
+  
   // Add animation class
  img.classList.add("flip");
-
-  // Random number (even = heads, odd = tails)
-  const randomNum = Math.floor(Math.random() * 10);
 
   // Wait for animation to complete (1s)
   setTimeout(() => {
@@ -25,3 +25,4 @@ function flipCoin() {
 }
 button.addEventListener('click',flipCoin)
 img.addEventListener('click',flipCoin)
+

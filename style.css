@@ -54,3 +54,13 @@ h3{
   font-weight: 600;
   font-size: 24px;
 }
+
+.flip {
+  animation: flipCoin 1s ease-in-out forwards;
+}
+
+@keyframes flipCoin {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(1800deg); }
+  100% { transform: rotateY(3600deg); }
+}
